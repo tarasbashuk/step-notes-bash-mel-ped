@@ -1,8 +1,15 @@
 extends layout
 
-block content
-  h1 #{title}
+block contentNotes
+  h2 #{titleNotes}
   ul.list-group
     each note, i in notes
       li.list-group-item
         a(href='/notes/'+note._id)= note.title
+
+block contentTodos
+  h2 #{titleTodos}
+  ul.list-group
+    each todo, i in todos
+      li.list-group-item
+        a(href='/todos/'+todo._id)= todo.title

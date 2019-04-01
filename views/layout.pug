@@ -16,12 +16,15 @@ html
             a.nav-link(href='/') Home
           li.nav-item
             a.nav-link(href='/notes/add') Add Note
+          li.nav-item
+            a.nav-link(href='/todos/add') Add Todo list
     .container
       != messages('message', locals)
       if errors
         each error, i in errors
           div(class='alert alert-danger') #{error.msg}
-      block content
+      block contentNotes
+      block contentTodos
       br
       hr
       footer

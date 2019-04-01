@@ -10,7 +10,15 @@ const config = require('./config/database');
 // Note model
 const Note = require('./models/note');
 
-mongoose.connect(config.database);
+// Todo model
+const Todo = require('./models/todo');
+
+mongoose.connect(config.uri);
+
+// mongoose.connect(config.uri, {
+//   useMongoClient: true
+// });
+
 const db = mongoose.connection;
 
 // Check connection
@@ -69,14 +77,26 @@ app.use(expressValidator({
 }));
 
 
-app.get('/', function (req, res) {
+app.get('/', async function (req, res) {
+  let todos;
+  await Todo.find({}, function(err, todosList){
+    if(err){
+      console.error(err);
+    } else {
+    console.log(todosList);
+    todos = todosList;
+    return todos
+    }
+      });
   Note.find({}, function(err, notes){
     if(err){
       console.error(err);
     } else {
       res.render('index', {
-        title: 'Notes', 
-        notes: notes
+        titleNotes: 'Notes', 
+        notes: notes,
+        titleTodos: 'Todo list',
+        todos: todos
       });
     }
   });
@@ -84,9 +104,11 @@ app.get('/', function (req, res) {
 
 // Route Files
 let notes = require('./routes/notes');
+let todos = require('./routes/todos');
 
 // Any routes that goes to '/notes' will go to the 'notes.js' file in route
 app.use('/notes', notes);
+app.use('/todos', todos);
 
 app.listen(3000, function(){
   console.log(`Server started on port 3000`);

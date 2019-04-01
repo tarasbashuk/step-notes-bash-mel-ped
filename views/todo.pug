@@ -1,0 +1,8 @@
+extends layout
+
+block contentTodos
+  h1= todo.title
+  p= todo.body
+  hr
+  a.btn.btn-default(href='/todos/edit/'+todo._id) Edit
+  a.btn.btn-danger.delete-todo(href='#', data-id=todo._id) Delete

@@ -2,7 +2,7 @@ extends layout
 
 block contentTodos
   h1 #{title}
-  form(method='POST', action='/notes/add')
+  form(method='POST', action='/todos/add')
     .form-group
       label Title:
       input.form-control(name='title', type='text')
