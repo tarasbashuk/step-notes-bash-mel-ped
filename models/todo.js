@@ -6,15 +6,17 @@ const articleSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  body: {
-    type: String,
-    required: true
-  },
-  cheked: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
+  body:  [{
+      text : {
+      type: String,
+      required: true
+    },
+    checked : {
+      type: Boolean,
+      default: false
+    }
+    
+     }]
 
 });
 
