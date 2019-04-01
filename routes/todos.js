@@ -13,6 +13,7 @@ router.get('/add', function(req, res){
 
 // submit new todo 
 router.post('/add', function(req, res){
+  console.log(req.body);
   // Express validatord
   req.checkBody('title', 'Title is required').notEmpty();
   req.checkBody('body', 'Body is required').notEmpty();
@@ -26,6 +27,8 @@ router.post('/add', function(req, res){
       errors: errors
     });
   } else {
+    console.log(req.body);
+    
     let todo = new Todo();
     todo.title = req.body.title;
     todo.body = req.body.body;

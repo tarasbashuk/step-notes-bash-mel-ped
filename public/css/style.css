@@ -9,3 +9,13 @@
   background: #dff0d8;
   border-color: #d6e9c6;
 }
+
+.todo-list {
+  font-size: 16px;
+  color: #000;
+}
+
+input[type="checkbox"] {
+  font-size: 16px;
+  color: #000;
+}
