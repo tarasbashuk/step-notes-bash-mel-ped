@@ -13,7 +13,6 @@ router.get('/add', function(req, res){
 
 // submit new todo 
 router.post('/add', function(req, res){
-  console.log(req.body);
   // Express validatord
   req.checkBody('title', 'Title is required').notEmpty();
   req.checkBody('body', 'Body is required').notEmpty();
@@ -42,16 +41,6 @@ router.post('/add', function(req, res){
     });
   }
 });
-
-// load edit form
-// router.get('/edit/:id', function(req, res){
-//   Todo.findById(req.params.id, function(err, todo){
-//     res.render('edit_todo', {
-//       title: 'Edit Todo list',
-//       todo: todo
-//     });
-//   });
-// });
 
 // update submit new todo 
 router.post('/edit/:id', function(req, res){
