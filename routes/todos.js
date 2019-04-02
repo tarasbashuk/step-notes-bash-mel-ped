@@ -27,8 +27,7 @@ router.post('/add', function(req, res){
       errors: errors
     });
   } else {
-    console.log(req.body);
-    
+    // console.log(req.body);
     let todo = new Todo();
     todo.title = req.body.title;
     todo.body = req.body.body;
@@ -38,8 +37,11 @@ router.post('/add', function(req, res){
         console.error(err);
         return;
       } else {
+        console.log('таки заходит в редирект');
         req.flash('success', 'Todo list Added');
         res.redirect('/');
+        console.log('и сюда тоже  заходит в редирект');
+        
       }
     });
   }

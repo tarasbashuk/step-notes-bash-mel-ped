@@ -51,16 +51,18 @@ $(document).ready(function(){
 
   // });
 
-  $('.add-todo-item-btn ').on('click', async function(e){
+  $('input[type="submit"]').on('click', async function(e){
      e.preventDefault();
      const elems = document.getElementsByClassName('list-group-item');
-
     const todoList = [];
     await [].forEach.call(elems, element => {
        let listItem = {};
-       listItem.text = element.innerText;
-       listItem.checked = false;
-       todoList.push(listItem);
+       if (element.innerText =="\n" || element.innerText ==" " || element.innerText =="  ")
+       { console.log('try to add emty list')} else{
+        listItem.text = element.innerText;
+        listItem.checked = false;
+        todoList.push(listItem);
+       }
      });
    
      let body = {
@@ -69,14 +71,24 @@ $(document).ready(function(){
      } ;
 
      console.log(body);
-
+if (body.title == "" || body.body.length == 0) 
+{alert('title and list are required')} else {
      fetch('/todos/add', {
       method: 'POST',
       headers: {
       'Content-Type': 'application/json'
     },
       body: JSON.stringify(body)
-  })
+  }).then(function(response) {
+    if(response.ok) {
+      console.log('todo added');
+      alert('todo added');
+      window.location.href='/';
+    }
+  }).catch(function(error) {
+    console.log('There has been some problem: ' + error.message);
+  });
+}
     // $.ajax({
     //   type: 'POST',
     //   url: '/add',
