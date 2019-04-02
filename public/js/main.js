@@ -32,24 +32,6 @@ $(document).ready(function(){
       }
     });
   });
-  // $('.add-todo-item-btn ').on('click', function(e){
-  //    e.preventDefault();
-  //    const listItemText = document.querySelector(".listText");
-  //    const frag = document.createDocumentFragment();
-  //    const listItem = document.createElement('p');
-  //   //  const listItemCheck = document.createElement('input');
-  //    const todoList =  document.querySelector(".todo-list");
-  //   //  listItemCheck.type = "checkbox";
-  //   //  listItemCheck.value = listItemText.value;
-     
-  //    listItem.innerHTML = `<input type="checkbox"> ${listItemText.value}`;
-  //   //  listItem.prepend(listItemCheck);
-  //   //  listItem.name = "1";
-  //   //  console.log($('.listText').val()); 
-  //    todoList.appendChild(listItem);
-  //    listItemText.value = "";
-
-  // });
 
   $('input[type="submit"]').on('click', async function(e){
      e.preventDefault();
@@ -89,20 +71,5 @@ if (body.title == "" || body.body.length == 0)
     console.log('There has been some problem: ' + error.message);
   });
 }
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/add',
-
-    //   data: JSON.stringify(todoList),
-    //   success: function (response){
-    //     console.log("add todo");
-        
-    //     // alert('Deleting todo list');
-    //     // window.location.href='/';
-    //   },
-    //   error: function(err){
-    //     console.error(err);
-    //   }
-    // });
   });
 });
