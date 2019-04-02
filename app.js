@@ -83,7 +83,6 @@ app.get('/', async function (req, res) {
     if(err){
       console.error(err);
     } else {
-    // console.log(todosList);
     todos = todosList;
     return todos
     }

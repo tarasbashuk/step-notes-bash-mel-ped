@@ -2,14 +2,20 @@ extends layout
 
 block contentTodos
   h1 #{title}
-  form(method='POST', action='/todos/add')
-      label Title:
-      input.form-control(id='title', type='text')
-      .card(style='width: 500px;', contenteditable='true')
-        .card-block
-            ul.list-group.list-group-flush Your list
-              li.list-group-item(name='body') Your list item
-              li.list-group-item(name='body') Your list item
 
-      input.btn.btn-primary(type='submit', value='Submit')
+  #myDIV.header-todos
+    input#todoTitle(style='margin:5px' name='header' placeholder='My To Do List')
+    br
+    input#myInput(type='text', placeholder='Title...')
+    span.addBtn Add
+  ul#myUL
+    li.listItem Hit the gym
+    li.checked.listItem Pay bills
+    li.listItem Meet George
+    li.listItem Buy eggs
+    li.listItem Read a book
+    li.listItem Organize office
+  br 
+  input.btn.btn-primary(type='button', value='Submit')
+
 

@@ -1,8 +1,15 @@
 extends layout
 
 block contentTodos
-  h1= todo.title
-  p= todo.body
+  #myDIV.header-todos
+    h1= title
+    br
+    input#myInput(type='text', placeholder='Item list...')
+    input#inputId(type='hidden', value=todo_id)
+    span.addBtn Add
+  ul#myUL
+    each todo in todos
+     li(class=`${todo.checked ? "checked listItem" :"listItem"}` )= todo.text
   hr
-  a.btn.btn-default(href='/todos/edit/'+todo._id) Edit
-  a.btn.btn-danger.delete-todo(href='#', data-id=todo._id) Delete
+  input.btn.btn-primary(type='button', value='Exit')
+  a.btn.btn-danger.delete-todo(href='#', data-id=todo_id) Delete
