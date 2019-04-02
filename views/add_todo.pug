@@ -3,22 +3,13 @@ extends layout
 block contentTodos
   h1 #{title}
   form(method='POST', action='/todos/add')
-    .card(style='width: 500px;', contenteditable='true')
       label Title:
       input.form-control(id='title', type='text')
-      input.form-control.listText(name='body', type='hidden')
-      .card-block
-        ul.list-group.list-group-flush
-          li.list-group-item(name='body') Your list item
-      //- a.btn.btn-primary(href='')  Save
-    //- .form-group
-    //-   label Title:
-    //-   input.form-control(name='title', type='text')
-    //- .form-group
-    //-   label List:
-    //-   textarea.form-control.listText(name='body')
-    //- br
-    //- div.todo-list
-    //- br
-    input.btn.btn-primary(type='submit', value='Submit')
-  button.btn.btn-secondary.add-todo-item-btn Add list item
+      .card(style='width: 500px;', contenteditable='true')
+        .card-block
+            ul.list-group.list-group-flush Your list
+              li.list-group-item(name='body') Your list item
+              li.list-group-item(name='body') Your list item
+
+      input.btn.btn-primary(type='submit', value='Submit')
+

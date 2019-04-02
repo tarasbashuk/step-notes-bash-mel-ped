@@ -13,9 +13,9 @@ const articleSchema = mongoose.Schema({
     },
     checked : {
       type: Boolean,
-      default: false
+      default: false,
+      required: true
     }
-    
      }]
 
 });
