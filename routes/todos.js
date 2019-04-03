@@ -42,7 +42,7 @@ router.post('/add', function(req, res){
   }
 });
 
-// update submit new todo 
+// update todo 
 router.post('/edit/:id', function(req, res){
   let todo = {};
   todo.title = req.body.title;
@@ -54,7 +54,12 @@ router.post('/edit/:id', function(req, res){
       console.error(err);
       return;
     } else {
-      req.flash('success', 'Todo list Updated');
+      //
+      //парни, я не знаю почему оно не отрабыатывает, именно поэтому повесил на фронте  alert('todo updated') и window.location.href = '/';
+      // прошу помочь
+      //
+      console.log('заходит в саксесс');
+      req.flash('success', 'Todo list Updated'); 
       res.redirect('/');
     }
   })
@@ -82,7 +87,6 @@ router.get('/:id', function(req, res){
       title: todo.title,
       todos: todo.body,
       todo_id: todo._id
-
     });
   });
 });

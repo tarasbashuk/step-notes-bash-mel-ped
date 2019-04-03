@@ -2,7 +2,7 @@ extends layout
 
 block contentTodos
   #myDIV.header-todos
-    h1= title
+    input(type ="text" value = title readonly class = "todo-title")
     br
     input#myInput(type='text', placeholder='Item list...')
     input#inputId(type='hidden', value=todo_id)
@@ -11,5 +11,5 @@ block contentTodos
     each todo in todos
      li(class=`${todo.checked ? "checked listItem" :"listItem"}` )= todo.text
   hr
-  input.btn.btn-primary(type='button', value='Exit')
+  input.btn.btn-primary(type='button', value='Exit' id='exitAndUpdateTodo')
   a.btn.btn-danger.delete-todo(href='#', data-id=todo_id) Delete

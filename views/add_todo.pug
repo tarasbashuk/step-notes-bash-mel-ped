@@ -4,18 +4,14 @@ block contentTodos
   h1 #{title}
 
   #myDIV.header-todos
-    input#todoTitle(style='margin:5px' name='header' placeholder='My To Do List')
+    input#todoTitle(style='margin:5px' name='header' placeholder='Your title')
     br
-    input#myInput(type='text', placeholder='Title...')
+    input#myInput(type='text', placeholder='Your list item...')
     span.addBtn Add
   ul#myUL
-    li.listItem Hit the gym
-    li.checked.listItem Pay bills
-    li.listItem Meet George
-    li.listItem Buy eggs
-    li.listItem Read a book
-    li.listItem Organize office
+    li.listItem Your list item
+    li.checked.listItem Your solved list item
   br 
-  input.btn.btn-primary(type='button', value='Submit')
+  input.btn.btn-primary(type='button', value='Submit' id='addNewTodo')
 
 
