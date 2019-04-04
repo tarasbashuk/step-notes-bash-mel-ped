@@ -7,7 +7,6 @@ $(document).ready(function () {
       type: 'DELETE',
       url: '/notes/' + id,
       success: function (response) {
-        alert('Deleting note');
         window.location.href = '/';
       },
       error: function (err) {
@@ -26,7 +25,6 @@ $(document).ready(function () {
       type: 'DELETE',
       url: '/todos/' + id,
       success: function (response) {
-        alert('Deleting todo list');
         window.location.href = '/';
       },
       error: function (err) {
@@ -37,7 +35,7 @@ $(document).ready(function () {
 
   //add todo new version
 
-  $('input[value="Submit"]').on('click', async function (e) {
+  $('#addNewTodo').on('click', async function (e) {
     e.preventDefault();
     const todoList = [];
     const elems = document.getElementsByClassName('listItem');
@@ -78,9 +76,15 @@ $(document).ready(function () {
     }
   });
 
+  // edit todo title
+
+  $('.todo-title').on('click',  function () {
+    $(this).removeAttr( "readonly")
+  });
+
   //update todolist 
 
-  $('input[value="Exit"]').on('click', async function (e) {
+  $('#exitAndUpdateTodo').on('click', async function (e) {
     e.preventDefault();
     const todoList = [];
     const elems = document.getElementsByClassName('listItem');
@@ -96,10 +100,10 @@ $(document).ready(function () {
         todoList.push(listItem);
       }
     });
-
+  
     let body = {
       id: $('#inputId').val(),
-      title: $('h1').text(),
+      title: $('.todo-title').val(),
       body: todoList
     };
 
@@ -114,7 +118,6 @@ $(document).ready(function () {
         body: JSON.stringify(body)
       }).then(function (response) {
         if (response.ok) {
-          console.log('todo updated');
           alert('todo updated');
           window.location.href = '/';
         }
@@ -181,3 +184,4 @@ function newElement() {
 }
 var addBtn = document.querySelector('.addBtn');
 addBtn.addEventListener('click', newElement);
+

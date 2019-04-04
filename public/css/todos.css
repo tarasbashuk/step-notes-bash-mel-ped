@@ -113,3 +113,17 @@
   .addBtn:hover {
     background-color: #bbb;
   }
+
+  .todo-title {
+    font-size: 2.5rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+    background-color: #f44336;
+    outline: none;
+    outline-offset: 0;
+    border: none;
+  }
